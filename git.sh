@@ -1,13 +1,22 @@
 #!/bin/bash
-echo "git operation"
+echo "git operation.........."
+
+echo "xx $#"
+
+if [ $# -gt 1 ]
+then
+    echo 'input error'
+    exit 
+fi
+
 if [ $1 = 'push' ]
 then
-    read -p '输入commit参数>>>:' commitarg
-    git add -A
-    git commit -m  ${commitarg}
+    echo 'push,please input the messages  for discriping your commit'
+    read  msgcommit
+    git  add -A
+    git commit -m  ${msgcommit}
     git push origin master
-elif test $1 == pull
-then
-    echo 'pull.....'
-    git pull origin master 
+else 
+    echo 'pull'
+    git pull origin master
 fi
